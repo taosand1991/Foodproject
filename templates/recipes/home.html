@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+
+    body{
+        background-image: url("https://images.unsplash.com/photo-1512275428636-76c9d55af6e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+        background-size: cover;
+    }
+    </style><br><br><br><br>
+{# <div id="box"></div>#}
+{% include 'recipes/message.html' %}
+    <p class="text-center text-white">Answer this little question before you move further</p>
+    <div class="d-flex h-100 justify-content-center">
+    <p class="text-center text-white m-2">whats is <span id="num1">8</span> * <span id="num2">5 </span> ?</p>
+        <p></p>
+
+        <input id="check"  type="text" placeholder="enter your answer">
+        <input type="submit" id="dont" class="btn btn-success" value="Check">
+        </div><br>
+        <center>
+            <p id="answer"></p>
+        </center>
+
+    <p class="text-center text-white">Search for your favorite Movies</p>
+    <form id="mine" action="{% url 'search' %}" method="get" class="d-flex h-100 form-inline justify-content-center align-items-center mx-sm-3">
+        <input id="finally" name="query" class="form-control m-2" type="text" placeholder="search">
+        <button id="mino" type="submit" class="btn btn-outline-success">search</button>
+    </form>
+
+{% endblock %}

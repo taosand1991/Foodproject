@@ -1,0 +1,124 @@
+.navbar-nav{
+    color: green;
+    z-index: 4;
+}
+
+.nav-link{
+    font-size: 17px;
+    font-family: Roboto, serif;
+}
+#num1{
+    color: green;
+}
+#num2{
+    color: red;
+}
+
+#answer{
+    color: white;
+    font-size: 15px;
+}
+img:hover{
+    -webkit-box-shadow: 3px 3px 4px 2px royalblue;
+    box-shadow: 3px 3px 4px 2px royalblue;
+    -moz-box-shadow: 3px 3px 4px 2px royalblue;
+    cursor: pointer;
+   transform: translateY(-10px);
+}
+
+div#box{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation: mymove 5s infinite ;
+    animation-timing-function: linear;
+}
+
+@keyframes mymove {
+    from{left:0px}
+    to{left:200px}
+}
+
+.jumbotron:hover{
+    background-color: green;
+}
+
+
+.ui-tabs .ui-tabs-panel{
+    background-color: green;
+}
+ol#work, ol#personal {
+    color: white;
+}
+.ui-state-default {
+    background-color: green;
+}
+
+li a{
+    color: red;
+}
+
+input{
+    outline: none;
+}
+
+.one{
+    font-family: "Bullpen 3D", serif;
+    padding: 10px 10px;
+    background:linear-gradient(gold, darkslategray);
+}
+
+.list-group-item:hover{
+    cursor: pointer;
+    border-color: red;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+
+}
+
+.tula{
+    font-size: 18px;
+    font-family: Montserrat, serif;
+    font-weight: bold;
+}
+
+.mymessage {
+    font-size: 50px;
+    font-family: "Matura MT Script Capitals", serif;
+    text-align: center;
+    text-decoration-line: none;
+    list-style: none;
+}
+.message.tags{
+    list-style: none;
+    padding: 5px 5px;
+    background-color: red;
+}
+
+.login{
+    margin: 5px;
+    outline: none;
+
+}
+.log{
+    margin: 200px auto;
+    width: 50%;
+}
+
+.error{
+    padding: 2px 2px ;
+    background-color: red;
+    margin-top: 5px;
+    color: white;
+}
+
+.cole{
+    margin: 10px auto;
+}
+
+@media only screen and (max-device-width: 320px){
+    .oned{
+        margin-top: 10px;
+    }
+}
+

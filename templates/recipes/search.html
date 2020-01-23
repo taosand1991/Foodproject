@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h3 style="margin-top: 5px;position: static" class="text-center text-capitalize"><u>MOVIE DETAILS</u></h3>
+    <div class="make">
+{% for movie in movies_data %}
+    <div style="margin-top: 20px;" class="container jumbotron">
+<div class="media">
+        {% if movie.poster %}
+	<a class="pull-left">
+		<img class="media-object m-2" src="{{ movie.poster }}" alt="Image">
+	</a>
+    {% else %}
+    <a  class="pull-left" href="#">
+		<img id="img"  class="media-object m-2" src="{% static 'img/786.png' %}" alt="Image">
+	</a>
+    {% endif %}
+	<div class="media-body m-2">
+		<h4 class="media-heading"><strong>MOVIE TITLE: </strong>{{ movie.title }}</h4>
+		<h5 class="media-heading"><strong>MOVIE YEAR: </strong>{{ movie.year }}</h5>
+		<h5 class="media-heading"><strong>MOVIE RATED: </strong>{{ movie.rated }}</h5>
+		<h5 class="media-heading"><strong>MOVIE RUNTIME: </strong>{{ movie.runtime }}</h5>
+		<h5 class="media-heading"><strong>MOVIE GENRE: </strong>{{ movie.genre }}</h5>
+		<h5 class="media-heading"><strong>MOVIE DIRECTOR: </strong>{{ movie.director }}</h5>
+		<h5 class="media-heading"><strong>MOVIE WRITERS: </strong>{{ movie.writer }}</h5>
+		<h5 class="media-heading"><strong>MOVIE ACTORS: </strong>{{ movie.actors }}</h5>
+		<h5 class="media-heading"><strong>MOVIE LANGUAGE: </strong>{{ movie.language }}</h5>
+		<h5 class="media-heading"><strong>MOVIE COUNTRY: </strong>{{ movie.country }}</h5>
+		<h5 class="media-heading"><strong>MOVIE AWARDS: </strong>{{ movie.awards }}</h5>
+		<h5 class="media-heading"><strong>MOVIE RATINGS: </strong><em>Source:</em>{{ movie.ratings }} ({{ movie.ratings_2 }})</h5>
+	</div>
+
+</div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

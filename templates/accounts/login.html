@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+body{
+    background-image: url("https://www.toptenz.net/wp-content/uploads/2014/01/dark-forest-570x455.jpg");
+}
+    </style>
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+        <form action="." method="POST" class="log">
+            {% csrf_token %}
+            {% if form.errors %}
+            <p class="error"><span class="fa fa-key" style="color: white"></span> The username or password is incorrect!!!</p>
+            {% endif %}
+            <div class="login">
+           {{ form.username }}
+                </div>
+            <div class="login">
+            {{ form.password }}
+                </div>
+            <button class="btn btn-outline-success btn-block mt-2">Login</button>
+            <p class="mt-2 text-white">forgot your password? <a href="{% url 'password_reset' %}">Reset your password</a></p>
+        </form>
+
+
+    </div>
+    </div>
+
+{% endblock %}

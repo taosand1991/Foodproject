@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form  method="POST" class="cole" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if user_form.errors and profile_form.errors %}
+            <p class="">Correct one of the fields</p>
+            {% endif %}
+            <div class="login">{{ user_form.first_name }}</div>
+            <div class="login">{{ user_form.last_name }}</div>
+            <div class="login">{{ user_form.username }}</div>
+            <div class="login">{{ user_form.email }}</div>
+            <div class="login">{{ user_form.password1 }}</div>
+            <div class="login">{{ user_form.password2 }}</div>
+            <div class="login">{{ profile_form.location }}</div>
+            <div class="login">{{ profile_form.biography }}</div>
+            <div class="login">{{ profile_form.image_cover }}</div>
+            <input class="form-control btn btn-outline-success" type="submit" value="submit">
+        </form>
+    </div>
+    </div>
+
+
+{% endblock %}

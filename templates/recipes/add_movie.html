@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-lg-6" style="margin: 15px auto">
+        <form class="form-inline" id="ent" method="POST">
+            {% csrf_token %}
+            <div class="oned">{{ form.movie }}</div>
+            <input id="ent2" class="btn btn-outline-success ml-2"  type="submit" value="Add">
+        </form>
+    </div>
+</div>
+    <br>
+{% include 'recipes/message.html' %}
+</div><br><br>
+    {% for movies in movies_data %}
+   <div class="media border p-3">
+   	<a class="pull-left align-self-center ml-2" href="#">
+   		<img class=" mr-3 " src="{{movies.poster }}" style="width: 70%"  alt="Image">
+   	</a>
+   	<div class="media-body">
+   		<h4 class="media-heading text-center one">{{ movies.title|upper }}</h4>
+   		<p class="list-group-item"><span class="tula">Year :</span><span>&nbsp;{{ movies.year }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Language :</span><span>&nbsp;{{ movies.language }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Actors :</span><span>&nbsp;{{ movies.actors }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Genre :</span><span>&nbsp;{{ movies.genre }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Runtime :</span><span>&nbsp;{{ movies.runtime }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Rated :</span><span>&nbsp;{{ movies.rated }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Country :</span><span>&nbsp;{{ movies.country }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Writer(s) :</span><span>&nbsp;{{ movies.writer }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Awards :</span><span>&nbsp;{{ movies.awards }}</span></p>
+   		<p class="list-group-item" ><span class="tula">Ratings :</span><span>&nbsp;{{ movies.ratings_2 }}</span></p>
+   	</div>
+   <sup  class="media float-left ml-4"><a id="del" class="btn btn-danger btn-sm m-2" href="{% url 'delete' movies.title %}"><small>X</small></a></sup>
+   </div><br>
+    {% endfor %}
+
+
+
+{% endblock %}
