@@ -26,7 +26,7 @@ SECRET_KEY = 'rwcivrww-htbfz4fz@mnq&=1l-nkt#=6)u6)%xktz)c)ov4hrm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["adole.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "adole.pythonanywhere.com"]
 
 # Application definition
 
