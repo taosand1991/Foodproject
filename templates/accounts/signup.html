@@ -2,12 +2,16 @@
 
 {% block content %}
     <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-6 offset-md-3 mt-3">
         <form  method="POST" class="cole" enctype="multipart/form-data">
             {% csrf_token %}
-            {% if user_form.errors and profile_form.errors %}
-            <p class="">Correct one of the fields</p>
-            {% endif %}
+            <h5 class="text-center">REGISTRATION FORM</h5>
+{% for field in user_form %}
+        {% for error in field.errors %}
+            <p style="color: red"> {{ error }} </p>
+        {% endfor %}
+    {% endfor %}
+
             <div class="login">{{ user_form.first_name }}</div>
             <div class="login">{{ user_form.last_name }}</div>
             <div class="login">{{ user_form.username }}</div>

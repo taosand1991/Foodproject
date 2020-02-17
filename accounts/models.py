@@ -8,6 +8,9 @@ class Profile(models.Model):
     image_cover = models.ImageField(upload_to='img/', blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.first_name
+
 
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
-import json
+import os
 import requests
 from recipes.form import MovieForm
 from .models import Movie
@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    url = 'http://www.omdbapi.com/?apikey=da403238&t={}'
+    url = os.environ.get('api_call')
     if request.method == 'GET':
         t = request.GET.get('query')
     else:
@@ -45,7 +45,7 @@ def home(request):
 
 
 def search_result(request):
-    url = 'http://www.omdbapi.com/?apikey=da403238&t={}'
+    url = os.environ.get('api_call')
     if request.method == "GET" and request.is_ajax():
         t = request.GET.get('query')
     else:
@@ -80,8 +80,8 @@ def search_result(request):
 @login_required(login_url='/accounts/login/')
 def add_movie(request):
     movies = Movie.objects.filter(profile=request.user)
-
-    url = 'http://www.omdbapi.com/?apikey=da403238&t={}'
+    # url = 'http://www.omdbapi.com/?apikey=da403238&t={}'
+    url = os.environ.get('api_call')
 
     form = MovieForm(data=request.POST or None)
     if form.is_valid():

@@ -22,12 +22,17 @@ def register(request):
             login(request, user)
             messages.success(request, 'Your account has been created')
             return redirect('home')
-        else:
-            messages.error(request, 'There is an error with your form')
+
+    #     else:
+    #         user = user_form
+    #         profile = profile_form
+    # #
+    # #
     else:
         user_form = RegistrationForm()
         profile_form = ProfileForm()
-    return render(request, 'accounts/signup.html', {'user_form': user_form, 'profile_form': profile_form})
+    context = {'user_form': user_form, 'profile_form': profile_form}
+    return render(request, 'accounts/signup.html', context)
 
 
 def profile(request):

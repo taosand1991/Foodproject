@@ -40,17 +40,27 @@
           {% if  request.user.is_authenticated %}
               <div class="nav-item nav-link" style="color: green;">Welcome!!! <span><small>({{ request.user.username }})</small></span></div>
               <div class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></div>
+              {% if image_cover.url %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#" role="button" id="navbarDropdown" aria-haspopup="true"
                   aria-expanded="false"><img class="img rounded-circle" src="{{ user.profile.image_cover.url }}" width="20px" alt=""> Profile</a>
-
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{% url 'profile' %}">profile</a>
                   <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
-              </div>
+                      <li/>
+                      <div/>
+                  {% else %}
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#" role="button" id="navbarDropdown" aria-haspopup="true"
+                  aria-expanded="false"><img class="img rounded-circle" src="" width="20px" alt=""> Profile</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'profile' %}">profile</a>
+                  <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                       </div>
+                  </li>
 
 
-              </li>
+                  {% endif %}
 
               {% else %}
        <li class="nav-item "><a class="nav-link" href="{% url 'login-in' %}">Login</a></li>
@@ -78,10 +88,9 @@
   <script type="text/javascript">
 
     $(document).ready(function () {
-        $('.nav-item>a.dropdown-toggle').hover(function () {
+        $('.nav-item>a.dropdown-toggle').click(function () {
             $(this).dropdown('toggle');
 
-            });
 
     })
 
