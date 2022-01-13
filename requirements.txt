@@ -6,7 +6,7 @@ Django==3.0.1
 django-bootstrap==0.2.4
 django-bootstrap-base-template==0.0.2
 idna==2.8
-Pillow==7.0.0
+Pillow==9.0.0
 pytz==2019.3
 requests==2.22.0
 sqlparse==0.3.0
